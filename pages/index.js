@@ -3,10 +3,14 @@ import Layout from "../components/Layout";
 import fetch from '/isomorphic-unfetch';
 
 const Index = (props) => {
-    return(
-        <div>
-            <h1>Hello</h1>
-        </div>
+    return (
+        <Layout>
+            <div className="card">
+            <h1></h1>
+                <TodoForm  todos={props.todos} />
+            </div>
+        </Layout>
+        
     )
 }
 
