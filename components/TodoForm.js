@@ -6,7 +6,7 @@ class TodoForm extends React.Component {
     super(props);
     this.state = {
       term: '',
-      items: []
+      items: props.todos
     };
   }
 
@@ -25,14 +25,14 @@ class TodoForm extends React.Component {
   if (this.state.term) {
 		this.setState({
       term: '',
-      items: [...this.state.items, this.state.term]
+      items: [...this.state.items, {id:this.state.items.length+1, title:this.state.term}]
     });
 	}
   }
   
   render() {
     return (
-      <div className="">
+      <div>
       <div className="card-title"><h2>Todo List App</h2></div>
         <form className="" onSubmit={this.onSubmit}>
           <input value={this.state.term} onChange={this.onChange} type="text" placeholder="Add a todo list..." />
@@ -43,5 +43,7 @@ class TodoForm extends React.Component {
     );
   }
 }
+
+
 
 export default TodoForm;
