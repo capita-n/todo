@@ -6,24 +6,20 @@ const app = next({ dev })
 const handle = app.getRequestHandler()
     
 const todos = [{
+    "id": 0,
+    "todo": "Complete My Node App"
+},
+{
     "id": 1,
-    "title": "Learn React.js"
+    "todo": "Learn Next.js"
 },
 {
     "id": 2,
-    "title": "Learn Next.js"
+    "todo": "Learn Redux"
 },
 {
     "id": 3,
-    "title": "Learn Express"
-},
-{
-    "id": 4,
-    "title": "Learn Redux"
-},
-{
-    "id": 5,
-    "title": "Learn Redux-saga"
+    "todo": "Keep Learning"
 }
 ]
 
@@ -31,17 +27,16 @@ app.prepare()
 .then(() => {
   const server = express()
     
-  server.get('/api/v1/todo', (req, res) => {
+  server.get('/api/express/todolist', (req, res) => {
     let result = JSON.stringify(todos)
-    return res.end(result);
+    return res.end(result)
   })
-    
+  server.get('*', (req,res)=>{
+      return handle(req, res)
+  })
   server.listen(3000, (err) => {
     if (err) throw err
     console.log('> Ready on http://localhost:3000')
   })
 })
-.catch((ex) => {
-  console.error(ex.stack)
-  process.exit(1)
-})
+

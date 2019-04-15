@@ -1,6 +1,6 @@
 import TodoForm from "../components/TodoForm";
 import Layout from "../components/Layout";
-import fetch from '/isomorphic-unfetch';
+import fetch from 'isomorphic-unfetch';
 
 const Index = (props) => {
     return (
@@ -15,9 +15,8 @@ const Index = (props) => {
 }
 
 Index.getInitialProps = async function() {
-	const res = await fetch(`http://localhost:3000/api/v1/todo`)
-  const data = await res.json()
-  console.log(data);
+    const res = await fetch(`http://localhost:3000/api/express/todolist`)
+    const data = await res.json()
 	return {
     
 		todos: data

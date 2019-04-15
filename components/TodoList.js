@@ -14,7 +14,7 @@ return (
 				<li key={index}>
 		<div className="list-item">
 		<span>
-		<h4>{item}</h4>
+		<h4>{item.todo}</h4>
 		</span>
 		<button className="btn-remove" onClick={() => removeItem(index)}>X</button>
 		</div>

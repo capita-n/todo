@@ -6,7 +6,7 @@ class TodoForm extends React.Component {
     super(props);
     this.state = {
       term: '',
-      items: props.todos
+      items: [...props.todos]
     };
   }
 
@@ -25,7 +25,7 @@ class TodoForm extends React.Component {
   if (this.state.term) {
 		this.setState({
       term: '',
-      items: [...this.state.items, {id:this.state.items.length+1, title:this.state.term}]
+      items: [...this.state.items, {id:this.state.items.length+1, todo:this.state.term}]
     });
 	}
   }
